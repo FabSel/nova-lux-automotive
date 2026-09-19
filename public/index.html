@@ -625,6 +625,28 @@ section {
   letter-spacing:1px;
 }
 
+.project-status {
+  display:inline-block;
+
+  margin-top:18px;
+
+  padding:7px 10px;
+
+  border:1px solid rgba(255,255,255,.18);
+
+  color:#888;
+
+  font-size:8px;
+
+  letter-spacing:2px;
+}
+
+.project-status.complete {
+  border-color:rgba(255,157,0,.45);
+
+  color:var(--amber);
+}
+
 
 /* =====================================================
    PROJECT PLACEHOLDER
@@ -1278,7 +1300,7 @@ footer strong {
 
   </div>
 
-<!-- ATOS -->
+<!-- PROJECTS -->
   <div class="project-grid">
 
     <a href="projects/atos/index.html" class="project">
@@ -1300,6 +1322,10 @@ footer strong {
         <p>
           DRL · PROYECTOR · DISEÑO OEM+
         </p>
+
+        <div class="project-status">
+          PROJECT IN DEVELOPMENT
+        </div>
 
       </div>
 
@@ -1331,6 +1357,10 @@ footer strong {
           PROYECTOR · DRL · DISEÑO PERSONALIZADO
         </p>
 
+        <div class="project-status complete">
+          PROJECT COMPLETED
+        </div>
+
       </div>
 
     </a>
@@ -1355,6 +1385,10 @@ footer strong {
         <p>
           ÓPTICA · DRL · ACABADO NOVA LUX
         </p>
+
+        <div class="project-status">
+          PROJECT IN DEVELOPMENT
+        </div>
 
       </div>
 
