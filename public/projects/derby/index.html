@@ -1,0 +1,798 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>DERBY | Nova Lux Automotive</title>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Roboto:wght@300;400;500&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+
+    :root {
+      --black:#080808;
+      --dark:#101010;
+      --panel:#141414;
+      --line:#242424;
+      --white:#f2f2f2;
+      --gray:#999;
+      --amber:#ff9d00;
+    }
+
+    * {
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    html {
+      scroll-behavior:smooth;
+    }
+
+    body {
+      background:var(--black);
+      color:var(--white);
+      font-family:Roboto,Arial,sans-serif;
+      font-weight:300;
+      line-height:1.6;
+    }
+
+    a {
+      color:inherit;
+      text-decoration:none;
+    }
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    header {
+      position:absolute;
+      top:0;
+      left:0;
+      width:100%;
+      z-index:10;
+
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+
+      padding:30px 6vw;
+
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+
+    .logo {
+      font-family:Montserrat,Arial,sans-serif;
+      font-size:15px;
+      font-weight:600;
+      letter-spacing:4px;
+    }
+
+    .logo span {
+      color:var(--amber);
+    }
+
+    .back {
+      color:#aaa;
+      font-size:10px;
+      letter-spacing:2px;
+      transition:color .3s ease;
+    }
+
+    .back:hover {
+      color:var(--amber);
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+      position:relative;
+      min-height:92vh;
+
+      display:flex;
+      align-items:flex-end;
+
+      overflow:hidden;
+
+      background:#111;
+    }
+
+    .hero-image {
+      position:absolute;
+      inset:0;
+    }
+
+    .hero-image img {
+      width:100%;
+      height:100%;
+
+      object-fit:cover;
+      object-position:center;
+
+      filter:
+        brightness(.62)
+        contrast(1.08);
+
+      transform:scale(1.01);
+    }
+
+    .hero::before {
+      content:"";
+
+      position:absolute;
+      inset:0;
+      z-index:1;
+
+      background:
+        radial-gradient(
+          circle at 72% 35%,
+          rgba(255,157,0,.10),
+          transparent 30%
+        );
+
+      pointer-events:none;
+    }
+
+    .hero::after {
+      content:"";
+
+      position:absolute;
+      inset:0;
+      z-index:1;
+
+      background:
+        linear-gradient(
+          to bottom,
+          rgba(0,0,0,.18) 0%,
+          rgba(0,0,0,.05) 35%,
+          rgba(0,0,0,.45) 65%,
+          rgba(0,0,0,.96) 100%
+        );
+
+      pointer-events:none;
+    }
+
+    .hero-content {
+      position:relative;
+      z-index:2;
+
+      width:100%;
+      padding:0 6vw 8vh;
+    }
+
+    .project-number {
+      color:var(--amber);
+
+      font-size:10px;
+      letter-spacing:4px;
+
+      margin-bottom:12px;
+    }
+
+    .hero h1 {
+      font-family:Montserrat,Arial,sans-serif;
+
+      font-size:
+        clamp(48px,9vw,120px);
+
+      line-height:.9;
+      letter-spacing:2px;
+    }
+
+    .hero-subtitle {
+      margin-top:18px;
+
+      color:#c5c5c5;
+
+      font-size:11px;
+      letter-spacing:3px;
+    }
+
+    /* =========================
+       INTRO
+    ========================= */
+
+    .intro {
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:8vw;
+
+      padding:130px 10vw;
+    }
+
+    .section-label {
+      color:var(--amber);
+
+      font-size:9px;
+      letter-spacing:3px;
+
+      margin-bottom:20px;
+    }
+
+    .intro h2 {
+      font-family:Montserrat,Arial,sans-serif;
+
+      font-size:
+        clamp(28px,4vw,52px);
+
+      line-height:1.1;
+      font-weight:500;
+    }
+
+    .intro-text {
+      color:#aaa;
+
+      font-size:15px;
+      line-height:1.9;
+    }
+
+    /* =========================
+       SPECS
+    ========================= */
+
+    .specs {
+      border-top:1px solid var(--line);
+      border-bottom:1px solid var(--line);
+
+      display:grid;
+      grid-template-columns:
+        repeat(4,1fr);
+    }
+
+    .spec {
+      padding:42px 30px;
+
+      border-right:1px solid var(--line);
+    }
+
+    .spec:last-child {
+      border-right:none;
+    }
+
+    .spec-number {
+      color:var(--amber);
+
+      font-family:Montserrat,Arial,sans-serif;
+
+      font-size:11px;
+      letter-spacing:2px;
+
+      margin-bottom:14px;
+    }
+
+    .spec h3 {
+      font-family:Montserrat,Arial,sans-serif;
+
+      font-size:12px;
+      letter-spacing:1px;
+    }
+
+    .spec p {
+      color:#777;
+
+      font-size:10px;
+
+      margin-top:7px;
+      letter-spacing:1px;
+    }
+
+    /* =========================
+       GALLERY
+    ========================= */
+
+    .gallery {
+      padding:130px 6vw;
+    }
+
+    .gallery-header {
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-end;
+
+      margin-bottom:45px;
+    }
+
+    .gallery-header h2 {
+      font-family:Montserrat,Arial,sans-serif;
+
+      font-size:
+        clamp(30px,4vw,52px);
+
+      font-weight:500;
+    }
+
+    .gallery-header p {
+      color:#666;
+
+      font-size:10px;
+      letter-spacing:2px;
+    }
+
+    .gallery-grid {
+      display:grid;
+
+      grid-template-columns:
+        repeat(2,1fr);
+
+      gap:18px;
+    }
+
+    .gallery-item {
+      position:relative;
+
+      overflow:hidden;
+
+      background:#111;
+
+      border:1px solid var(--line);
+    }
+
+    .gallery-item.large {
+      grid-column:span 2;
+    }
+
+    .gallery-item img {
+      display:block;
+
+      width:100%;
+      height:100%;
+
+      object-fit:cover;
+
+      transition:
+        transform .8s cubic-bezier(.2,.7,.2,1),
+        filter .8s ease;
+
+      filter:
+        brightness(.82)
+        contrast(1.05);
+    }
+
+    .gallery-item:hover img {
+      transform:scale(1.035);
+
+      filter:
+        brightness(.95)
+        contrast(1.08);
+    }
+
+    .gallery-item.large {
+      height:620px;
+    }
+
+    .gallery-item:not(.large) {
+      height:430px;
+    }
+
+    /* =========================
+       FOOTER CTA
+    ========================= */
+
+    .closing {
+      padding:150px 6vw 120px;
+
+      border-top:1px solid var(--line);
+
+      text-align:center;
+    }
+
+    .closing-label {
+      color:var(--amber);
+
+      font-size:9px;
+      letter-spacing:4px;
+
+      margin-bottom:25px;
+    }
+
+    .closing h2 {
+      font-family:Montserrat,Arial,sans-serif;
+
+      font-size:
+        clamp(28px,5vw,64px);
+
+      line-height:1.05;
+      font-weight:500;
+    }
+
+    .closing p {
+      max-width:520px;
+
+      margin:25px auto 40px;
+
+      color:#777;
+
+      font-size:13px;
+    }
+
+    .back-button {
+      display:inline-block;
+
+      padding:15px 26px;
+
+      border:1px solid #444;
+
+      font-size:10px;
+      letter-spacing:2px;
+
+      transition:
+        background .3s ease,
+        border-color .3s ease,
+        color .3s ease;
+    }
+
+    .back-button:hover {
+      background:var(--amber);
+      border-color:var(--amber);
+      color:#000;
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media(max-width:700px) {
+
+      header {
+        padding:24px 6vw;
+      }
+
+      .hero {
+        min-height:78vh;
+      }
+
+      .hero-content {
+        padding-bottom:50px;
+      }
+
+      .hero h1 {
+        font-size:58px;
+      }
+
+      .hero-subtitle {
+        font-size:9px;
+        letter-spacing:2px;
+      }
+
+      .intro {
+        grid-template-columns:1fr;
+        gap:45px;
+
+        padding:90px 8vw;
+      }
+
+      .intro-text {
+        font-size:14px;
+      }
+
+      .specs {
+        grid-template-columns:
+          repeat(2,1fr);
+      }
+
+      .spec {
+        padding:30px 22px;
+      }
+
+      .spec:nth-child(2) {
+        border-right:none;
+      }
+
+      .spec:nth-child(-n+2) {
+        border-bottom:1px solid var(--line);
+      }
+
+      .gallery {
+        padding:90px 6vw;
+      }
+
+      .gallery-header {
+        display:block;
+      }
+
+      .gallery-header p {
+        margin-top:10px;
+      }
+
+      .gallery-grid {
+        grid-template-columns:1fr;
+      }
+
+      .gallery-item.large {
+        grid-column:span 1;
+        height:400px;
+      }
+
+      .gallery-item:not(.large) {
+        height:300px;
+      }
+
+      .closing {
+        padding:
+          100px 8vw
+          90px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <header>
+
+    <a
+      href="../../index.html"
+      class="logo"
+    >
+      NOVA <span>LUX</span>
+    </a>
+
+    <a
+      href="../../index.html"
+      class="back"
+    >
+      ← VOLVER AL PORTAFOLIO
+    </a>
+
+  </header>
+
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <div class="hero-image">
+
+      <img
+        src="../../images/projects/derby/final.jpg"
+        alt="Nova Lux Derby terminado"
+      >
+
+    </div>
+
+    <div class="hero-content">
+
+      <div class="project-number">
+        PROYECTO 02
+      </div>
+
+      <h1>
+        DERBY
+      </h1>
+
+      <div class="hero-subtitle">
+        PROYECTOR · DRL · GUÍA DE ACRÍLICO · DISEÑO PERSONALIZADO
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- INTRO -->
+
+  <section class="intro">
+
+    <div>
+
+      <div class="section-label">
+        EL PROYECTO
+      </div>
+
+      <h2>
+        UNA NUEVA<br>
+        PRESENCIA.
+      </h2>
+
+    </div>
+
+    <div class="intro-text">
+
+      <p>
+        Un faro original de Volkswagen Derby transformado
+        mediante una intervención completa de iluminación
+        y diseño.
+      </p>
+
+      <br>
+
+      <p>
+        El proyecto integra un proyector de lupa,
+        iluminación DRL y una guía de acrílico diseñada
+        específicamente para generar una firma luminosa
+        propia.
+      </p>
+
+      <br>
+
+      <p>
+        La intención no fue simplemente modificar el faro,
+        sino construir una identidad visual nueva
+        conservando la esencia del vehículo original.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- SPECS -->
+
+  <section class="specs">
+
+    <div class="spec">
+
+      <div class="spec-number">
+        01
+      </div>
+
+      <h3>
+        PROYECTOR
+      </h3>
+
+      <p>
+        ÓPTICA DE LUPA
+      </p>
+
+    </div>
+
+
+    <div class="spec">
+
+      <div class="spec-number">
+        02
+      </div>
+
+      <h3>
+        DRL
+      </h3>
+
+      <p>
+        FIRMA LUMINOSA
+      </p>
+
+    </div>
+
+
+    <div class="spec">
+
+      <div class="spec-number">
+        03
+      </div>
+
+      <h3>
+        ACRÍLICO
+      </h3>
+
+      <p>
+        GUÍA DE LUZ PERSONALIZADA
+      </p>
+
+    </div>
+
+
+    <div class="spec">
+
+      <div class="spec-number">
+        04
+      </div>
+
+      <h3>
+        DISEÑO
+      </h3>
+
+      <p>
+        DESARROLLO NOVA LUX
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- GALLERY -->
+
+  <section class="gallery">
+
+    <div class="gallery-header">
+
+      <div>
+
+        <div class="section-label">
+          DETALLES
+        </div>
+
+        <h2>
+          DERBY / 01
+        </h2>
+
+      </div>
+
+      <p>
+        NOVA LUX AUTOMOTIVE
+      </p>
+
+    </div>
+
+
+    <div class="gallery-grid">
+
+      <div class="gallery-item large">
+
+        <img
+          src="../../images/projects/derby/hero.jpg"
+          alt="Faro Nova Lux Derby"
+        >
+
+      </div>
+
+
+      <div class="gallery-item">
+
+        <img
+          src="../../images/projects/derby/detail-01.jpg"
+          alt="Detalle del faro Nova Lux Derby"
+        >
+
+      </div>
+
+
+      <div class="gallery-item">
+
+        <img
+          src="../../images/projects/derby/detail-02.jpg"
+          alt="Detalle de iluminación Nova Lux Derby"
+        >
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CLOSING -->
+
+  <section class="closing">
+
+    <div class="closing-label">
+      NOVA LUX AUTOMOTIVE
+    </div>
+
+    <h2>
+      NO VENDEMOS FAROS.<br>
+      DISEÑAMOS PRESENCIA.
+    </h2>
+
+    <p>
+      Cada proyecto comienza con una pieza original
+      y termina con una identidad propia.
+    </p>
+
+    <a
+      href="../../index.html"
+      class="back-button"
+    >
+      VOLVER AL PORTAFOLIO
+    </a>
+
+  </section>
+
+
+</body>
+</html>
