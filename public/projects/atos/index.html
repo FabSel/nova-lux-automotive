@@ -3,31 +3,374 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nova Lux | ATOS</title>
-<meta name="description" content="Proyecto Nova Lux Automotive para Chevrolet Atos. Página de proyecto en desarrollo.">
+
+<title>Nova Lux Automotive | ATOS</title>
+
+<meta name="description" content="ATOS. Proyecto Nova Lux Automotive en desarrollo, enfocado en diseño de iluminación e integración óptica.">
+
 <style>
-:root{--black:#050505;--text:#f2f2f2;--muted:#888;--line:rgba(255,255,255,.12);--amber:#ff9d00}
+:root{
+  --black:#050505;
+  --dark:#0a0a0a;
+  --text:#f2f2f2;
+  --muted:#777;
+  --line:rgba(255,255,255,.11);
+  --amber:#ff9d00;
+}
+
 *{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--black);color:var(--text);font-family:Arial,sans-serif;min-height:100vh}
+
+html{scroll-behavior:smooth}
+
+body{
+  background:var(--black);
+  color:var(--text);
+  font-family:Arial,Helvetica,sans-serif;
+}
+
 a{color:inherit;text-decoration:none}
-header{padding:24px 6%;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}
-.logo{font-weight:700;letter-spacing:4px}.logo small{display:block;margin-top:5px;color:#777;font-size:8px;letter-spacing:4px}
-.back{font-size:10px;letter-spacing:2px;color:#999}
-main{min-height:calc(100vh - 80px);display:flex;align-items:center;padding:80px 8%}
-.wrap{max-width:900px}
-.num{color:var(--amber);font-size:10px;letter-spacing:4px;margin-bottom:25px}
-h1{font-size:clamp(60px,11vw,150px);line-height:.85;letter-spacing:3px}
-.tag{margin-top:28px;color:#aaa;font-size:11px;letter-spacing:2px}
-.line{width:70px;height:1px;background:var(--amber);margin:45px 0 30px}
-h2{font-size:clamp(25px,4vw,48px);font-weight:300}
-p{max-width:620px;margin-top:20px;color:#777;line-height:1.8}
-.status{display:inline-block;margin-top:45px;padding:15px 22px;border:1px solid var(--line);color:var(--amber);font-size:9px;letter-spacing:3px}
-footer{padding:30px 8%;border-top:1px solid var(--line);color:#555;font-size:9px;letter-spacing:2px}
+
+header{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:10;
+  padding:22px 6%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:rgba(5,5,5,.72);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--line);
+}
+
+.logo{
+  font-weight:700;
+  letter-spacing:4px;
+  font-size:15px;
+}
+
+.logo small{
+  display:block;
+  margin-top:5px;
+  color:#777;
+  font-size:8px;
+  letter-spacing:4px;
+}
+
+.back{
+  color:#999;
+  font-size:9px;
+  letter-spacing:2px;
+  transition:.3s;
+}
+
+.back:hover{color:white}
+
+.hero{
+  min-height:100vh;
+  padding:150px 8% 90px;
+  display:flex;
+  align-items:center;
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 76% 48%,rgba(255,157,0,.10),transparent 28%);
+}
+
+.hero::after{
+  content:"";
+  position:absolute;
+  width:55vw;
+  height:55vw;
+  right:-20vw;
+  top:12vh;
+  border:1px solid rgba(255,157,0,.08);
+  border-radius:50%;
+}
+
+.hero-content{
+  position:relative;
+  z-index:2;
+  max-width:1050px;
+}
+
+.num{
+  color:var(--amber);
+  font-size:10px;
+  letter-spacing:4px;
+  margin-bottom:24px;
+}
+
+h1{
+  font-size:clamp(70px,13vw,170px);
+  line-height:.8;
+  letter-spacing:3px;
+  font-weight:700;
+}
+
+.tag{
+  margin-top:30px;
+  color:#aaa;
+  font-size:10px;
+  letter-spacing:2.5px;
+}
+
+.rule{
+  width:70px;
+  height:1px;
+  margin:42px 0 30px;
+  background:var(--amber);
+}
+
+.intro{
+  max-width:720px;
+  font-size:clamp(27px,4vw,52px);
+  line-height:1.05;
+  font-weight:300;
+}
+
+.intro strong{font-weight:600}
+
+.description{
+  max-width:650px;
+  margin-top:25px;
+  color:#888;
+  font-size:14px;
+  line-height:1.8;
+}
+
+.status{
+  display:inline-flex;
+  margin-top:40px;
+  padding:14px 20px;
+  border:1px solid var(--line);
+  color:var(--amber);
+  font-size:9px;
+  letter-spacing:3px;
+}
+
+section{
+  padding:110px 8%;
+  border-top:1px solid var(--line);
+}
+
+.section-number{
+  color:var(--amber);
+  font-size:9px;
+  letter-spacing:4px;
+  margin-bottom:18px;
+}
+
+h2{
+  font-size:clamp(32px,5vw,62px);
+  line-height:1;
+  font-weight:600;
+}
+
+.concept{
+  background:var(--dark);
+}
+
+.concept-grid{
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:70px;
+  margin-top:55px;
+}
+
+.concept-copy{
+  max-width:720px;
+  color:#aaa;
+  font-size:18px;
+  line-height:1.8;
+}
+
+.specs{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  border-top:1px solid var(--line);
+}
+
+.spec{
+  padding:25px 20px;
+  border-bottom:1px solid var(--line);
+  border-right:1px solid var(--line);
+}
+
+.spec:nth-child(even){border-right:none}
+
+.spec span{
+  display:block;
+  color:var(--amber);
+  font-size:9px;
+  letter-spacing:2px;
+  margin-bottom:10px;
+}
+
+.spec strong{
+  font-size:13px;
+  letter-spacing:1px;
+}
+
+.future{
+  min-height:420px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  background:
+    linear-gradient(135deg,#111,#070707);
+}
+
+.future-inner{
+  max-width:720px;
+}
+
+.future p{
+  margin-top:25px;
+  color:#666;
+  line-height:1.8;
+}
+
+.back-projects{
+  display:inline-block;
+  margin-top:35px;
+  padding:16px 24px;
+  border:1px solid rgba(255,255,255,.25);
+  font-size:9px;
+  letter-spacing:2px;
+  transition:.3s;
+}
+
+.back-projects:hover{
+  background:white;
+  color:black;
+}
+
+footer{
+  padding:35px 8%;
+  border-top:1px solid var(--line);
+  color:#555;
+  font-size:9px;
+  letter-spacing:2px;
+}
+
+@media(max-width:800px){
+  .hero{padding:130px 20px 70px}
+  section{padding:85px 20px}
+  header{padding:18px 20px}
+  .concept-grid{grid-template-columns:1fr;gap:50px}
+  .specs{grid-template-columns:1fr}
+  .spec{border-right:none}
+}
 </style>
 </head>
+
 <body>
-<header><a href="../../index.html" class="logo">NOVA LUX<small>AUTOMOTIVE</small></a><a href="../../index.html" class="back">← PORTAFOLIO</a></header>
-<main><div class="wrap"><div class="num">01 / PROJECT</div><h1>ATOS</h1><div class="tag">DRL · PROYECTOR · DISEÑO OEM+</div><div class="line"></div><h2>Un proyecto en desarrollo.</h2><p>Esta página ya forma parte del portafolio Nova Lux. El proyecto Atos tendrá aquí su presentación, imágenes, detalles técnicos y evolución cuando el desarrollo esté listo para mostrarse.</p><span class="status">PROJECT IN DEVELOPMENT</span></div></main>
-<footer>NOVA LUX AUTOMOTIVE · MÉXICO · 2026</footer>
+
+<header>
+  <a href="../../index.html" class="logo">
+    NOVA LUX
+    <small>AUTOMOTIVE</small>
+  </a>
+
+  <a href="../../index.html" class="back">← PORTAFOLIO</a>
+</header>
+
+<main>
+
+<section class="hero">
+  <div class="hero-content">
+    <div class="num">01 / PROJECT</div>
+
+    <h1>ATOS</h1>
+
+    <div class="tag">
+      DRL · PROYECTOR · DISEÑO OEM+
+    </div>
+
+    <div class="rule"></div>
+
+    <div class="intro">
+      <strong>Una nueva presencia.</strong><br>
+      El proyecto apenas comienza.
+    </div>
+
+    <p class="description">
+      ATOS será uno de los proyectos con los que Nova Lux llevará su lenguaje
+      de diseño e iluminación a un vehículo de uso cotidiano, buscando una
+      integración que se sienta parte natural del automóvil.
+    </p>
+
+    <div class="status">
+      PROJECT IN DEVELOPMENT
+    </div>
+  </div>
+</section>
+
+<section class="concept">
+  <div class="section-number">02 / CONCEPT</div>
+
+  <h2>Diseñar antes<br>de modificar.</h2>
+
+  <div class="concept-grid">
+    <p class="concept-copy">
+      Este proyecto todavía está en desarrollo. Por eso esta página no intenta
+      aparentar un resultado que aún no existe.
+      <br><br>
+      Aquí iremos documentando la evolución real del proyecto: concepto,
+      componentes, fabricación, integración óptica, pruebas y resultado final.
+    </p>
+
+    <div class="specs">
+      <div class="spec">
+        <span>01</span>
+        <strong>DISEÑO</strong>
+      </div>
+
+      <div class="spec">
+        <span>02</span>
+        <strong>ÓPTICA</strong>
+      </div>
+
+      <div class="spec">
+        <span>03</span>
+        <strong>DRL</strong>
+      </div>
+
+      <div class="spec">
+        <span>04</span>
+        <strong>INTEGRACIÓN</strong>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="future">
+  <div class="future-inner">
+    <div class="section-number">03 / NEXT</div>
+
+    <h2>La siguiente imagen<br>será real.</h2>
+
+    <p>
+      Cuando el proyecto avance, esta sección dejará de ser una promesa y
+      comenzará a contar una historia con fotografías, detalles y pruebas
+      reales del trabajo.
+    </p>
+
+    <a href="../../index.html" class="back-projects">
+      ← VOLVER AL PORTAFOLIO
+    </a>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  NOVA LUX AUTOMOTIVE · MÉXICO · 2026
+</footer>
+
 </body>
 </html>
