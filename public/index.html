@@ -2,17 +2,15 @@
 <html lang="es">
 <head>
 
-<!-- Lili, cariño, eres la mejor, todo esto es gracias a ti -->
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Nova Lux Automotive | Diseño e iluminación automotriz</title>
 
-<meta name="description"
-content="Nova Lux Automotive. Diseño, fabricación y modificación de faros e iluminación automotriz desarrollada en México.">
-
 <meta name="theme-color" content="#050505">
+<meta name="description" content="Nova Lux Automotive. Diseño, fabricación y modificación de faros e iluminación automotriz desarrollada en México.">
+<link rel="icon" href="assets/brand/novalux-isotipo.svg" type="image/svg+xml">
 
 <style>
 
@@ -75,11 +73,29 @@ header {
 }
 
 .logo {
-  font-family:Montserrat,Arial,sans-serif;
-  font-size:18px;
-  font-weight:700;
-  letter-spacing:5px;
+  display:flex;
+  align-items:center;
+  gap:12px;
 }
+
+.logo img {
+  width:34px;
+  height:34px;
+  display:block;
+}
+
+.logo-mark {
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.logo-wordmark {
+  width:150px;
+  height:auto;
+  display:block;
+}
+
 
 .logo small {
   display:block;
@@ -211,29 +227,13 @@ nav a:hover {
 }
 
 .hero-logo {
-  font-family:Montserrat,Arial,sans-serif;
-
-  font-size:clamp(60px,10vw,145px);
-
-  line-height:.82;
-
-  letter-spacing:8px;
-
-  font-weight:700;
+  width:min(820px,82vw);
 }
 
-.hero-logo span {
+.hero-logo img {
+  width:100%;
+  height:auto;
   display:block;
-
-  margin-top:25px;
-
-  color:#777;
-
-  font-size:clamp(15px,2vw,25px);
-
-  letter-spacing:12px;
-
-  font-weight:500;
 }
 
 .hero-title {
@@ -1028,6 +1028,12 @@ footer {
   letter-spacing:1px;
 }
 
+footer .footer-logo {
+  width:210px;
+  height:auto;
+  display:block;
+}
+
 footer strong {
   color:#aaa;
 
@@ -1130,6 +1136,15 @@ footer strong {
     padding:18px 20px;
   }
 
+  .logo-wordmark {
+    width:125px;
+  }
+
+  .logo img {
+    width:30px;
+    height:30px;
+  }
+
   section {
     padding:90px 20px;
   }
@@ -1204,9 +1219,11 @@ footer strong {
 
 <header>
 
-  <a href="#inicio" class="logo">
-    NOVA LUX
-    <small>AUTOMOTIVE</small>
+  <a href="#inicio" class="logo" aria-label="Nova Lux Automotive">
+    <img src="assets/brand/novalux-isotipo.svg" alt="" aria-hidden="true">
+    <span class="logo-mark">
+      <img class="logo-wordmark" src="assets/brand/novalux-logo.svg" alt="Nova Lux Automotive">
+    </span>
   </a>
 
   <nav>
@@ -1243,12 +1260,8 @@ footer strong {
         LIGHT IN MOTION
       </div>
 
-      <div class="hero-logo">
-        NOVA LUX
-
-        <span>
-          AUTOMOTIVE
-        </span>
+      <div class="hero-logo" aria-label="Nova Lux Automotive">
+        <img src="assets/brand/novalux-logo.svg" alt="Nova Lux Automotive">
       </div>
 
       <h1 class="hero-title">
@@ -1771,9 +1784,7 @@ footer strong {
 <footer>
 
   <div>
-    <strong>
-      NOVA LUX AUTOMOTIVE
-    </strong>
+    <img src="assets/brand/novalux-imagotipo.svg" alt="Nova Lux Automotive" class="footer-logo">
   </div>
 
   <div>
